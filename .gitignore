@@ -1,0 +1,7 @@
+# Cargo build output
+/target/
+
+# Editor and OS leftovers
+*~
+*.swp
+.DS_Store
