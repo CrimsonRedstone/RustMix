@@ -1,0 +1,27 @@
+[package]
+name = "rustmix"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "RustMix Crimson Edition, a native mixer and patchbay for the MOTU 828"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = []
+ui = ["dep:eframe", "dep:image"]
+
+[dependencies]
+eframe = { version = "0.37.0", optional = true, default-features = false, features = ["glow", "default_fonts", "wayland", "x11"] }
+image = { version = "0.25.10", optional = true, default-features = false, features = ["png"] }
+libc = "0.2.191"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+
+[[bin]]
+name = "RustMix"
+path = "src/main.rs"
+
+[profile.release]
+strip = true
+lto = false
+codegen-units = 16
